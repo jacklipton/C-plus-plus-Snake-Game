@@ -3,6 +3,8 @@ project(SnakeGameSDL)
 
 set(CMAKE_CXX_STANDARD 14)
 
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static-libgcc -static-libstdc++")
+
 # Must set the path to the main.cpp, for example: scripts/main.cpp if it is inside a folder
 add_executable(${PROJECT_NAME} scripts/main.cpp
         scripts/Application.hpp
@@ -28,3 +30,4 @@ find_package(SDL2_ttf REQUIRED)
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIR} ${SDL2_IMAGE_INCLUDE_DIR} ${SDL2_TTF_INCLUDE_DIR})
 target_link_libraries(${PROJECT_NAME} ${SDL2_LIBRARY} ${SDL2_IMAGE_LIBRARIES} ${SDL2_TTF_LIBRARIES})
+
