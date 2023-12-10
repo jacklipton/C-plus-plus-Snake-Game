@@ -1,0 +1,16 @@
+# ninja log v5
+2	274	7239459677569133	build.ninja	4978f700da8be8be
+89	4627	7233474447810695	CMakeFiles/SnakeGameSDL.dir/scripts/snake_part.cpp.obj	473e152705fb5cc
+13	4117	7238692965515565	CMakeFiles/SnakeGameSDL.dir/scripts/main.cpp.obj	eef96dc7f74983c
+6	766	7239457012932056	SnakeGameSDL.exe	6610fe1865d18559
+22	1363	7231554583038114	CMakeFiles/SnakeGameSDL.dir/scripts/stick_figure.cpp.obj	e7de74bf4493642
+48	12279	7237929719005423	CMakeFiles/SnakeGameSDL.dir/scripts/snake_head.cpp.obj	acb9d8bfd22c1344
+40	260	7232377763740526	CMakeFiles/SnakeGameSDL.dir/scripts/player.cpp.obj	7db5bd42c880ccc7
+7	1709	7238772463028771	CMakeFiles/SnakeGameSDL.dir/scripts/food.cpp.obj	f7c59f8eb3cbdb23
+8	1839	7238771579655973	CMakeFiles/SnakeGameSDL.dir/scripts/application.cpp.obj	59b34c18c7aa5565
+34	16560	7237929760375549	CMakeFiles/SnakeGameSDL.dir/scripts/snake_body.cpp.obj	25b1cca44cc6d63d
+8	2398	7238711784888121	CMakeFiles/SnakeGameSDL.dir/scripts/game.cpp.obj	c960cd917ee0d71c
+28	2037	7238513719243551	CMakeFiles/SnakeGameSDL.dir/scripts/snakeObj.cpp.obj	de4f3b0ea225ba32
+6	1594	7238548491772311	CMakeFiles/SnakeGameSDL.dir/scripts/snakeHead.cpp.obj	559c1c781beb6482
+23	2285	7238555831630650	CMakeFiles/SnakeGameSDL.dir/scripts/snakeBody.cpp.obj	9d2cf46f92d48948
+10	2046	7238680944983727	CMakeFiles/SnakeGameSDL.dir/scripts/SnakeObj.cpp.obj	51312591eacf5d1c
