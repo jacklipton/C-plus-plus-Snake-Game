@@ -1,0 +1,36 @@
+//
+// Created by Jack on 2023-12-01.
+//
+
+#ifndef SNAKEGAMESDL_FOOD_HPP
+#define SNAKEGAMESDL_FOOD_HPP
+
+#include <SDL.h>
+#include <SDL_image.h>
+#include <iostream>
+#include <memory>
+#include <random>
+
+
+class food {
+public:
+
+    food(SDL_Renderer* renderer, char const *path);
+    ~food() = default;
+
+    bool checkEaten(int headXPos, int headYPos);
+
+    void draw(SDL_Renderer* renderer);
+    bool getIsEaten();
+    void newPos();
+
+
+private:
+    SDL_Texture* imageTexture;
+    SDL_Rect imageRect{};
+    bool isEaten = false;
+
+};
+
+
+#endif //SNAKEGAMESDL_FOOD_HPP
