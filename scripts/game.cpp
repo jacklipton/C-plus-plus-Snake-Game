@@ -29,10 +29,25 @@ Game::Game(SDL_Window *m_window) {
     SDL_RenderPresent(renderer);
 
 
+
+// Assuming this code is inside YourCppFile.cpp which is two levels deep
+    std::string currentFilePath = __FILE__;  // Get the path of the current source file
+// Find the position of the last two occurrences of the path separator
+    size_t lastSeparator = currentFilePath.find_last_of("/\\");
+    size_t secondLastSeparator = currentFilePath.substr(0, lastSeparator).find_last_of("/\\");
+// Construct the path to the SnakeGameSDL folder (two levels up from the source file)
+    std::string snakeGameFolder = currentFilePath.substr(0, secondLastSeparator);
+
+    squareBmpPath = snakeGameFolder + "/square.bmp";
+    foodBmpPath = snakeGameFolder + "/green-fruit-bmp-file-format-food-bitmap.bmp";
+    circleBmpPath = snakeGameFolder + "/circle.bmp";
+    gmOvBmpPath = snakeGameFolder + "/gameOver.bmp";
+
+
     //create the game objects and assign them to the relevant pointer
-    foodPiece = new food(renderer, "C:/Users/Jack/CLionProjects/SnakeGameSDL/green-fruit-bmp-file-format-food-bitmap.bmp");
+    foodPiece = new food(renderer, foodBmpPath.c_str());
     body = new std::vector<SnakeObj>;
-    body->emplace_back(renderer,"C:/Users/Jack/CLionProjects/SnakeGameSDL/square.bmp",20,20);
+    body->emplace_back(renderer,squareBmpPath.c_str(),20,20);
     snakeTailLen = 0;
     gameOver = false;
 }
@@ -70,7 +85,7 @@ void Game::update() {
 
     if(foodPiece->checkEaten( body->at(0).getXPos(), body->at(0).getYPos())){
         foodPiece->newPos();
-        body->emplace_back(renderer,"C:/Users/Jack/CLionProjects/SnakeGameSDL/circle.bmp",body->back().getXPos()-15,body->back().getYPos());
+        body->emplace_back(renderer,circleBmpPath.c_str(),body->back().getXPos()-15,body->back().getYPos());
         snakeTailLen++;
 
     }
@@ -123,7 +138,7 @@ bool Game::getGameState() {
 bool Game::resetGame() {
 
     //some sort of game over screen
-    SDL_Surface* imageSurface = IMG_Load("C:/Users/Jack/CLionProjects/SnakeGameSDL/gameOver.bmp");//make this dynamic
+    SDL_Surface* imageSurface = IMG_Load(gmOvBmpPath.c_str());//make this dynamic
 
     // Create a texture from the loaded image
     SDL_Texture* imageTexture = SDL_CreateTextureFromSurface(renderer, imageSurface);
@@ -154,7 +169,7 @@ bool Game::resetGame() {
                     }else if(conPlaying.key.keysym.sym == SDLK_RETURN){
                         SDL_RenderClear(renderer);
                         body->clear();
-                        body->emplace_back(renderer,"C:/Users/Jack/CLionProjects/SnakeGameSDL/square.bmp",20,20);
+                        body->emplace_back(renderer,squareBmpPath.c_str(),20,20);
                         draw();
                         gameOver = false;
                         return true;

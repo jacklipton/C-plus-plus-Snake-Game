@@ -36,6 +36,10 @@ private:
     food* foodPiece;
     int snakeTailLen;
     bool gameOver;
+    std::string squareBmpPath;
+    std::string circleBmpPath;
+    std::string foodBmpPath;
+    std::string gmOvBmpPath;
 
 
 };
