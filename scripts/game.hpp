@@ -26,7 +26,6 @@ public:
     void handle_events(SDL_Event const &event);
     bool getGameState() const;
     bool resetGame();
-    void reSize();
 
 
 private:

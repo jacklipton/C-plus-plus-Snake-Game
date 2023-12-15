@@ -170,9 +170,6 @@ bool Game::resetGame() {
 
 }
 
-void Game::reSize() {
-
-}
 
 
 
