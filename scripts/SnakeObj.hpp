@@ -22,7 +22,7 @@ public:
         RIGHT
     };
 
-    SnakeObj(SDL_Renderer *renderer, const char *path, int initX, int initY);
+    SnakeObj(SDL_Renderer *renderer, int initX, int initY);
 
     ~SnakeObj() = default;
 

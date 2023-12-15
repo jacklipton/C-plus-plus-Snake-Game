@@ -24,8 +24,9 @@ public:
     void update();
     void Tail();
     void handle_events(SDL_Event const &event);
-    bool getGameState();
+    bool getGameState() const;
     bool resetGame();
+    void reSize();
 
 
 private:
@@ -36,10 +37,14 @@ private:
     food* foodPiece;
     int snakeTailLen;
     bool gameOver;
-    std::string squareBmpPath;
-    std::string circleBmpPath;
-    std::string foodBmpPath;
-    std::string gmOvBmpPath;
+
+    SDL_Texture* gameOverTexture;
+
+    const unsigned char* squareImageData;
+    const unsigned char* circleImageData;
+    const unsigned char* foodImageData;
+    const unsigned char* gameOverImageData;
+
 
 
 };

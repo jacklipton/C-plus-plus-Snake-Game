@@ -15,7 +15,7 @@
 class food {
 public:
 
-    food(SDL_Renderer* renderer, char const *path);
+    explicit food(SDL_Renderer* renderer);
     ~food() = default;
 
     bool checkEaten(int headXPos, int headYPos);

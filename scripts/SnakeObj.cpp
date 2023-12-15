@@ -3,19 +3,14 @@
 //
 
 #include "SnakeObj.hpp"
+#include "square.hpp"
 
-SnakeObj::SnakeObj(SDL_Renderer *renderer, const char *path, int initX, int initY) {
+SnakeObj::SnakeObj(SDL_Renderer *renderer, int initX, int initY) {
     // Load BMP image
-    SDL_Surface* imageSurface = IMG_Load(path);//make this dynamic
-    if (!imageSurface) {
-    // Handle image loading error
-    //SDL_DestroyRenderer(renderer);
-    //SDL_DestroyWindow(window);
-    std::cout << "surface import failed" << std::endl;
-    IMG_Quit();
-    //SDL_Quit();
-    return;
-    }
+    const unsigned char* imageData= square_bmp;
+    const int imageDataSize = square_bmp_len;
+    SDL_RWops* rwops = SDL_RWFromConstMem(imageData, imageDataSize);
+    SDL_Surface* imageSurface = SDL_LoadBMP_RW(rwops, 1);
 
     // Create a texture from the loaded image
     imageTexture = SDL_CreateTextureFromSurface(renderer, imageSurface);

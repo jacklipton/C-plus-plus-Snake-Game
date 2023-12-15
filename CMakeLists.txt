@@ -15,6 +15,7 @@ add_executable(${PROJECT_NAME} scripts/main.cpp
         scripts/application.cpp
         scripts/SnakeObj.cpp
         scripts/food.cpp
+        scripts/gameOver.hpp
 )
 
 # --- SDL2 SETUP ---

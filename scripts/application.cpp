@@ -9,7 +9,7 @@ Application::Application(){
                                 SDL_WINDOWPOS_CENTERED,
                                 SDL_WINDOWPOS_CENTERED,
                                 810, 615,
-                                0);
+                                SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     if(!m_window)
     {
         std::cout << "Failed to create window\n";
@@ -45,6 +45,11 @@ void Application::loop(){
                     break;
                 case SDL_KEYDOWN:
                     curGame.handle_events(m_window_event);
+                case SDL_WINDOWEVENT:
+                    if(m_window_event.window.event == SDL_WINDOWEVENT_RESIZED) {
+                       //do something to resize game
+                    }
+                    break;
             }
 
         }

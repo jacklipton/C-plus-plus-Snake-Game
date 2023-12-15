@@ -3,18 +3,14 @@
 //
 
 #include "food.hpp"
+#include "foodImage.hpp"
 
-food::food(SDL_Renderer* renderer, char const *path){
-    // Load BMP image
-    SDL_Surface* imageSurface = IMG_Load(path);//make this dynamic
-    if (!imageSurface) {
-    // Handle image loading error
-    //SDL_DestroyRenderer(renderer);
-    //SDL_DestroyWindow(window);
-    IMG_Quit();
-    //SDL_Quit();
-    return;
-    }
+food::food(SDL_Renderer* renderer){
+
+    const unsigned char* imageData= green_fruit_bmp_file_format_food_bitmap_bmp;
+    const int imageDataSize = green_fruit_bmp_file_format_food_bitmap_bmp_len;
+    SDL_RWops* rwops = SDL_RWFromConstMem(imageData, imageDataSize);
+    SDL_Surface* imageSurface = SDL_LoadBMP_RW(rwops, 1);
 
     // Create a texture from the loaded image
     imageTexture = SDL_CreateTextureFromSurface(renderer, imageSurface);
