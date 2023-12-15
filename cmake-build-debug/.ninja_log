@@ -29,3 +29,7 @@
 90	2966	7243798112680582	CMakeFiles/SnakeGameSDL.dir/scripts/food.cpp.obj	f7c59f8eb3cbdb23
 9	7068	7243798542634821	CMakeFiles/SnakeGameSDL.dir/scripts/game.cpp.obj	c960cd917ee0d71c
 7071	8584	7243798557555203	SnakeGameSDL.exe	6610fe1865d18559
+9	4628	7243808051448793	CMakeFiles/SnakeGameSDL.dir/scripts/main.cpp.obj	eef96dc7f74983c
+29	4641	7243808051573169	CMakeFiles/SnakeGameSDL.dir/scripts/application.cpp.obj	59b34c18c7aa5565
+21	8246	7243808087737268	CMakeFiles/SnakeGameSDL.dir/scripts/game.cpp.obj	c960cd917ee0d71c
+8246	9703	7243808102211827	SnakeGameSDL.exe	6610fe1865d18559
