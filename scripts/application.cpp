@@ -47,7 +47,7 @@ void Application::loop(){
                     curGame.handle_events(m_window_event);
                 case SDL_WINDOWEVENT:
                     if(m_window_event.window.event == SDL_WINDOWEVENT_RESIZED) {
-                       //do something to resize game
+                        curGame.reSize(m_window);
                     }
                     break;
             }

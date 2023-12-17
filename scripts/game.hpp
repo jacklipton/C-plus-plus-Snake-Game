@@ -26,6 +26,7 @@ public:
     void handle_events(SDL_Event const &event);
     bool getGameState() const;
     bool resetGame();
+    void reSize(SDL_Window *m_window);
 
 
 private:
@@ -39,10 +40,10 @@ private:
 
     SDL_Texture* gameOverTexture;
 
-    const unsigned char* squareImageData;
-    const unsigned char* circleImageData;
-    const unsigned char* foodImageData;
     const unsigned char* gameOverImageData;
+
+    int curW;
+    int curH;
 
 
 

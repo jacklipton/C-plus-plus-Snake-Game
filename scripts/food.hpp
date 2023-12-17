@@ -22,7 +22,7 @@ public:
 
     void draw(SDL_Renderer* renderer);
     bool getIsEaten();
-    void newPos();
+    void newPos(int W, int H);
 
 
 private:

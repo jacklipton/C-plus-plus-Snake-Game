@@ -18,11 +18,14 @@ Game::Game(SDL_Window *m_window) {
     }
 
 
+
+    SDL_GetWindowSize(m_window,&curW,&curH);
+
     // Create an SDL_Rect object for the window's border
     this->borderRect.x = 10;  // Adjust the border size as needed
     this->borderRect.y = 10;
-    this->borderRect.w = 790; // Adjust the width and height to fit inside the window
-    this->borderRect.h = 595;
+    this->borderRect.w = curW - 20; // Adjust the width and height to fit inside the window
+    this->borderRect.h = curH - 20;
 
     // Draw the white border
     SDL_RenderDrawRect(renderer, &borderRect);
@@ -74,12 +77,12 @@ void Game::update() {
         }
     }
 
-    if(body->at(0).getXPos() > 790 || body->at(0).getYPos() > 595 || body->at(0).getXPos() < 10|| body->at(0).getYPos() < 10){
+    if(body->at(0).getXPos() > curW - 20 || body->at(0).getYPos() > curH - 20 || body->at(0).getXPos() < 10|| body->at(0).getYPos() < 10){
         gameOver = true;
     }
 
     if(foodPiece->checkEaten( body->at(0).getXPos(), body->at(0).getYPos())){
-        foodPiece->newPos();
+        foodPiece->newPos(curW,curH);
         body->emplace_back(renderer,body->back().getXPos()-15,body->back().getYPos());
         snakeTailLen++;
 
@@ -130,17 +133,38 @@ bool Game::getGameState() const {
     return gameOver;
 }
 
+void Game::reSize(SDL_Window *m_window){
+    SDL_GetWindowSize(m_window,&curW,&curH);
+
+    // Create an SDL_Rect object for the window's border
+    this->borderRect.x = 10;  // Adjust the border size as needed
+    this->borderRect.y = 10;
+    this->borderRect.w = curW - 20; // Adjust the width and height to fit inside the window
+    this->borderRect.h = curH - 20;
+
+
+
+    // Draw the white border
+    SDL_RenderDrawRect(renderer, &borderRect);
+    foodPiece->newPos(curW,curH);
+    // Present the renderer
+    SDL_RenderPresent(renderer);
+}
+
 bool Game::resetGame() {
 
 
-    // Get the dimensions of the image
-    int imageWidth, imageHeight;
-    SDL_QueryTexture(gameOverTexture, NULL, NULL, &imageWidth, &imageHeight);
+    //Adjust size of game over tab as window size changes
+    int originalWidth, originalHeight, scaledWidth, scaledHeight;
+    SDL_QueryTexture(gameOverTexture, NULL, NULL, &originalWidth, &originalHeight);
+    scaledWidth = curW; // Adjust as needed
+    scaledHeight = (originalHeight * scaledWidth) / originalWidth;
+
     SDL_Rect gameOverCard;
-    gameOverCard.x = 50; // Adjust the position as needed
-    gameOverCard.y = 200;
-    gameOverCard.w = imageWidth;
-    gameOverCard.h = imageHeight;
+    gameOverCard.x = curW* (1.0/810.0); // Adjust the position as needed
+    gameOverCard.y = curH* (175.0/615.0);
+    gameOverCard.w = scaledWidth;
+    gameOverCard.h = scaledHeight;
 
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -166,12 +190,4 @@ bool Game::resetGame() {
             }
         }
     }
-
-
 }
-
-
-
-
-
-
