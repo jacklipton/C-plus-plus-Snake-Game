@@ -91,7 +91,7 @@ void Game::update() {
         Tail();
     }
     body->at(0).update(3.0);
-    SDL_Delay(80);
+    SDL_Delay(200);
 
 
 

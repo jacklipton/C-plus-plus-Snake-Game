@@ -55,8 +55,8 @@ void food::draw(SDL_Renderer* renderer){ SDL_RenderCopy(renderer, imageTexture, 
 bool food::getIsEaten() { return isEaten;}
 
 void food::newPos(int W, int H){
-    imageRect.x = rand() % (W - 15); // Adjust the position as needed. Fix to keep within bounds
-    imageRect.y = rand() % (H - 15);
+    imageRect.x = rand() % ((W-15) - 15); // Adjust the position as needed. Fix to keep within bounds
+    imageRect.y = rand() % ((H-15) - 15);
 
     imageRect.x += (imageRect.x % 15 >= 7.0) ? (15 - imageRect.x % 15) : -(imageRect.x % 15);
     imageRect.y += (imageRect.y % 15 >= 7.0) ? (15 - imageRect.y % 15) : -(imageRect.y % 15);
